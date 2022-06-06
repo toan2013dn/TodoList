@@ -33,142 +33,101 @@
   </head>
   <body>
     <!-- <main class="wrapper"> -->
-      <div class="todo container">
-        <h1 id="title">TodoList</h1>
-        <table id="table">
-          <tr class="table-name">
-            <th>Task</th>
-            <th>Status</th>
-            <th>Remove</th>
-          </tr>
-          <tr class="table-content">
-            <td class="table-task">
-              <input
-                type="checkbox"
-                id="taskDone"
-                name="taskDone"
-                value="taskDone"
-              />
-              Do chest exercise
-            </td>
-            <td class="table-high priority"><p>High</p></td>
-            <td class="table-remove">
-              <button id="remove" type="button">
-                <img
-                  src="./source/assets/close-circle.png"
-                  alt="delete"
-                />
-              </button>
-            </td>
-          </tr>
-          <tr class="table-content">
-            <td class="table-task">
-              <input
-                type="checkbox"
-                id="taskDone"
-                name="taskDone"
-                value="taskDone"
-              />
-              Do chest exercise
-            </td>
-            <td class="table-low priority"><p>Low</p></td>
-            <td class="table-remove">
-              <button type="button">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="table-content">
-            <td class="table-task">
-              <input
-                type="checkbox"
-                id="taskDone"
-                name="taskDone"
-                value="taskDone"
-              />
-              Do chest exercise
-            </td>
-            <td class="table-medium priority"><p>Medium</p></td>
-            <td class="table-remove">
-              <button type="button">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="table-content">
-            <td class="table-task">
-              <input
-                type="checkbox"
-                id="taskDone"
-                name="taskDone"
-                value="taskDone"
-              />
-              Do chest exercise
-            </td>
-            <td class="table-done priority"><p>Done</p></td>
-            <td class="table-remove">
-              <button type="button">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="table-content">
-            <td class="table-task">
-              <input
-                type="checkbox"
-                id="taskDone"
-                name="taskDone"
-                value="taskDone"
-              />
-              Do chest exercise
-            </td>
-            <td class="table-done priority"><p>Done</p></td>
-            <td class="table-remove">
-              <button type="button">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="table-content">
-            <td class="table-task">
-              <input
-                type="checkbox"
-                id="taskDone"
-                name="taskDone"
-                value="taskDone"
-              />
-              Do chest exercise
-            </td>
-            <td class="table-done priority"><p>Done</p></td>
-            <td class="table-remove">
-              <button type="button">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="table-content">
-            <td class="table-task">
-              <input
-                type="checkbox"
-                id="taskDone"
-                name="taskDone"
-                value="taskDone"
-              />
-              Do chest exercise
-            </td>
-            <td class="table-done priority"><p>Done</p></td>
-            <td class="table-remove">
-              <button type="button">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
-          
-        </table>
-        <div class="submit">
-          <button type="button"><a href="./addTask.html">Add Task</a></button>
+    <div class="todo container">
+      <h1 id="title">TodoList</h1>
+      <div class="todo-layout">
+        <div class="todo-task">
+          <div class="todo-title">
+          <h2 class="task">Task</h2>
+        </div>
+          <div class="todo-checkbox">
+            <input
+              type="checkbox"
+              value="None"
+              id="todo-checkbox"
+              class="checkbox"
+              name="check"
+              checked
+            />
+            <label for="todo-checkbox"><span>Hang out with Thinh</span></label>
+          </div>
+          <div class="todo-checkbox">
+            <input
+              type="checkbox"
+              value="None"
+              id="todo-checkbox2"
+              class="checkbox"
+              name="check"
+              checked
+            />
+            <label for="todo-checkbox2"><span>Hang out with Thinh</span></label>
+          </div>
+          <div class="todo-checkbox">
+            <input
+              type="checkbox"
+              value="None"
+              id="todo-checkbox3"
+              class="checkbox"
+              name="check"
+              checked
+            />
+            <label for="todo-checkbox3"><span>Hang out with Thinh</span></label>
+          </div>
+          <div class="todo-checkbox">
+            <input
+              type="checkbox"
+              value="None"
+              id="todo-checkbox4"
+              class="checkbox"
+              name="check"
+              checked
+            />
+            <label for="todo-checkbox4"><span>Hang out with Thinh</span></label>
+          </div>
+        </div>
+        <div class="todo-status">
+          <div class="title">
+            <h2 class="status">Status</h2>
+          </div>
+          <div class="todo-priority">
+            <div class="high priority">High</div>
+            <div class="medium priority">Medium</div>
+            <div class="low priority">Low</div>
+            <div class="done priority">Done</div>
+          </div>
+        </div>
+        <div class="todo-remove ">
+          <div class="title">
+            <h2 class="remove">Remove</h2>
+          </div>
+          <div id="removebtn">
+            <div class="removebtn1 remove">
+            <button  type="button">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+          <div class="removebtn2 remove">
+            <button  type="button">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+          <div class="removebtn3  remove">
+            <button  type="button">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+          <div class="removebtn4 remove">
+            <button  type="button">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+          </div>
         </div>
       </div>
+      <div id="addTask" class="submit">
+        <button type="button">Add Task</button>
+      </div>
+    </div>
     <!-- </main> -->
     <script type="module" src="/main.js"></script>
   </body>

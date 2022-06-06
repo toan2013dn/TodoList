@@ -3,8 +3,8 @@ import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 import 'sweetalert2/src/sweetalert2.scss'
 
-const button = document.getElementById('remove')
-button.addEventListener("click", function(){
+const buttonRemove = document.getElementById('removebtn')
+buttonRemove.addEventListener("click", function(){
     Swal.fire({
         title: 'Do you want to remove this task?',
         showDenyButton: true,
@@ -19,4 +19,27 @@ button.addEventListener("click", function(){
           Swal.fire('Changes are not saved', '', 'info')
         }
       })
+})
+
+const button = document.getElementById('addTask')
+button.addEventListener("click", async function(){
+  const { value: formValues } = await Swal.fire({
+  title: 'Add Task',
+  html:
+    '<label for="taskname">Task:</label>' +
+    '<input id="swal-input1" class="swal2-input">' +
+    '<label for="status">Status:</label>' +
+    '<input id="swal-input2" class="swal2-input">',
+  focusConfirm: false,
+  preConfirm: () => {
+    return [
+      document.getElementById('swal-input1').value,
+      document.getElementById('swal-input2').value
+    ]
+  }
+})
+
+if (formValues) {
+  Swal.fire(JSON.stringify(formValues))
+}
 })
