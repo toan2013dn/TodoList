@@ -1,146 +1,118 @@
-/* .wrapper{
-    width: 100%;
-    height: 100%;
-} */
-
-* {
-    margin: 0;
-    padding: 0;
+body {
+    font-family: "Open Sans", sans-serif;
 }
 
-.todo {
-    background-color: #E9D5CA;
-    // padding: 0 0 30px 0;
-    width: 650px;
-    height: 808px;
+.task--wrapper {
+    max-width: 650px;
+    max-height: 800px;
+    background-color: #e9d5ca;
     border-radius: 8px;
-    text-align: center;
-    .todo-layout {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .task--header {
+        font-weight: 700;
+        font-size: 64px;
+        padding: 65px 300px 65px 65px;
+    }
+
+    .task--grid {
         display: grid;
-        grid-template-columns: 50% 37% 15%;
-        margin-top: 50px;
-        grid-row-gap: 20px;
-        border-bottom: 2px solid #ffff;
-        .todo-task {
-        grid-row-gap: 20px;
+        grid-template-columns: auto;
+        margin: 12px 56px;
+
+        .task--grid__header {
+            display: grid;
+            grid-template-columns: 100px auto 160px 100px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #fff;
+            text-align: center;
+        }
+
+        .task--item {
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: 100px auto 160px 100px;
             
-            .todo-checkbox {
-                display: inline-flex;
+            &__checkbox {
+                // position: relative;
+                display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 200px;
-                position: relative;
-               
+                input {
+                    // position: absolute;
+                    // left: 50%;
+                    // top: 50%;
+                    // transform: translate(-50%, -50%);
+                    // display: block;
+                    // margin: 0 auto;
+                    height: 20px;
+                    width: 20px;
+            
+                }
+                // .strikethrough:checked + .strike {
+                //     text-decoration: line-through
+                //   }
+            }
 
-                label {
-                    width: 16px;
-                    height: 16px;
-                    cursor: pointer;
-                    position: absolute;
-                    top: 5px;
-                    left: 0;
+            &__status {
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                div {
+                    height: 24px;
+                    width: 85px;
                     background-color: #fff;
-                    border-radius: 4px;
-                    &:after {
-                        content: '';
-                        width: 10px;
-                        height: 5px;
-                        position: absolute;
-                        top: 4px;
-                        left: 3px;
-                        border: 2px solid red;
-                        border-top: none;
-                        border-right: none;
-                        background: transparent;
-                        opacity: 0;
-                        transform: rotate(-45deg);
-                    }
-
-                    &:hover::after {
-                        opacity: 0.3;
-                    }
-                }
-
-                span {
-                    position: absolute;
-                    width: 200px;
-                    left: 25px;
-                }
-
-                input[type=checkbox] {
-                    visibility: hidden;
-
-                    &:checked+label {
-                        background: #ffff;
-                    }
-
-                    &:checked+label:after {
-                        opacity: 1;
-                    }
-
-                }
-            }
-        }
-        .todo-status{
-            .todo-priority{
-                .priority{
-                    background-color: #ffff;
                     border-radius: 8px;
-                    // width: 85px;
-                }
-                .high{
-                    color: #E53434;
-                }
-                .medium{
-                    color: #989776;
-                }
-                .low{
-                    color: #56705A;
-                }
-                .done{
-                    color: #8CBD91;
+
+                    &.high {
+                        color: #E53434;
+                    }
+
+                    &.low {
+                        color: #56705A;
+                    }
+
+                    &.medium {
+                        color: #989776;
+                    }
+
+                    &.done {
+                        color: #8CBD91;
+                    }
                 }
             }
-        }
-        .todo-remove{
-            .remove{
-                button{
-                    border-style: none;
+
+            &__remove {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    cursor: pointer;
                 }
             }
         }
     }
-}
 
-.todo-title {
-    text-align: center;
-    border-bottom: 2px solid #ffff;
+    .task--button__add {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 32px 0;
 
-    h2 {
-        font-weight: bold;
-        font-size: 20px;
-    }
-}
-
-
-#title {
-    font-weight: bold;
-    // margin-top: 50px;
-    font-size: 50px;
-}
-
-
-.submit {
-    button {
-
-        background-color: #B1D498;
-        text-decoration: none;
-        cursor: pointer;
-        color: #000;
-        font-weight: bold;
-        padding: 10px 40px;
-        border-radius: 10px;
-        border-style: none;
-        font-weight: 900;
+        span {
+            cursor: pointer;
+            padding: 6px 24px;
+            border-radius: 8px;
+            border: none;
+            background-color: #b1d498;
+            font-size: 20px;
+            font-weight: 600;
+        }
     }
 }

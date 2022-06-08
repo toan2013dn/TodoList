@@ -31,104 +31,75 @@
     <script src="/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
+
   <body>
-    <!-- <main class="wrapper"> -->
-    <div class="todo container">
-      <h1 id="title">TodoList</h1>
-      <div class="todo-layout">
-        <div class="todo-task">
-          <div class="todo-title">
-          <h2 class="task">Task</h2>
+    <main class="task--wrapper">
+      <div class="task--header">
+        <span>TodoList</span>
+        <h1 class="hidden">TodoList</h1>
+      </div>
+      <div class="task--grid">
+        <div class="task--grid__header">
+          <div class="checkbox--col"></div>
+          <div class="task--name-col">Task</div>
+          <div class="status-col">Status</div>
+          <div class="remove-col">Remove</div>
         </div>
-          <div class="todo-checkbox">
-            <input
-              type="checkbox"
-              value="None"
-              id="todo-checkbox"
-              class="checkbox"
-              name="check"
-              checked
-            />
-            <label for="todo-checkbox"><span>Hang out with Thinh</span></label>
+        <div class="task--item" id="task--item">
+          <div class="task--item__checkbox">
+            <input id="checked" type="checkbox" >
           </div>
-          <div class="todo-checkbox">
-            <input
-              type="checkbox"
-              value="None"
-              id="todo-checkbox2"
-              class="checkbox"
-              name="check"
-              checked
-            />
-            <label for="todo-checkbox2"><span>Hang out with Thinh</span></label>
+          <div class="task--item__name"><label for="checked"></label></div>
+          <div class="task--item__status">
+            <div class="high">High</div>
           </div>
-          <div class="todo-checkbox">
-            <input
-              type="checkbox"
-              value="None"
-              id="todo-checkbox3"
-              class="checkbox"
-              name="check"
-              checked
-            />
-            <label for="todo-checkbox3"><span>Hang out with Thinh</span></label>
-          </div>
-          <div class="todo-checkbox">
-            <input
-              type="checkbox"
-              value="None"
-              id="todo-checkbox4"
-              class="checkbox"
-              name="check"
-              checked
-            />
-            <label for="todo-checkbox4"><span>Hang out with Thinh</span></label>
+          <div id="removebtn" class="task--item__remove">
+            <img src="./source/assets/delete.png" alt="" />
           </div>
         </div>
-        <div class="todo-status">
-          <div class="title">
-            <h2 class="status">Status</h2>
+        <div class="task--item">
+          <div class="task--item__checkbox">
+            <input id="checked2" type="checkbox" class="strikethrough" />
+       <!-- <label for="checked2" class="strike">Date with Ex</label> -->
           </div>
-          <div class="todo-priority">
-            <div class="high priority">High</div>
-            <div class="medium priority">Medium</div>
-            <div class="low priority">Low</div>
-            <div class="done priority">Done</div>
+          <div class="task--item__name"><label for="checked2" class="strike">Date with Ex</label></div>
+          <div class="task--item__status">
+            <div class="low">Low</div>
+          </div>
+          <div id="removebtn" class="task--item__remove">
+            <img src="./source/assets/delete.png" alt="" />
           </div>
         </div>
-        <div class="todo-remove ">
-          <div class="title">
-            <h2 class="remove">Remove</h2>
+        <div class="task--item">
+          <div class="task--item__checkbox">
+            <input id="checked3" type="checkbox" />
           </div>
-          <div id="removebtn">
-            <div class="removebtn1 remove">
-            <button  type="button">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
+          <div class="task--item__name"><label for="checked3">Hang out with Thinh</label></div>
+          <div class="task--item__status">
+            <div class="medium">Medium</div>
           </div>
-          <div class="removebtn2 remove">
-            <button  type="button">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
+          <div id="removebtn" class="task--item__remove">
+            <img src="./source/assets/delete.png" alt="" />
           </div>
-          <div class="removebtn3  remove">
-            <button  type="button">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
+        </div>
+        <div  class="task--item">
+          <div class="task--item__checkbox">
+            <input id="checked4" type="checkbox" checked />
           </div>
-          <div class="removebtn4 remove">
-            <button  type="button">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
+          <div class="task--item__name"><label for="checked4">Go to vacation</label></div>
+          <div class="task--item__status">
+            <div class="done">Done</div>
           </div>
+          <div id="removebtn" class="task--item__remove">
+            <img src="./source/assets/delete.png" alt="" />
           </div>
         </div>
       </div>
-      <div id="addTask" class="submit">
-        <button type="button">Add Task</button>
+      <div id="addTask" class="task--button__add">
+        <span> Add Task </span>
       </div>
-    </div>
-    <!-- </main> -->
+    </main>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
