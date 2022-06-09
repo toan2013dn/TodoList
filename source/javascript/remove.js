@@ -7,9 +7,12 @@ const addEventRemove = (buttonId) => {
   button.addEventListener("click", async () => {
     const id = buttonId.substring(9);
     try {
-      const response = await axios.delete("http://localhost:3001/api/task", {
-        data: { id },
-      });
+      const response = await axios.delete(
+        "https://todolist-restapi-nodejs.herokuapp.com/api/task",
+        {
+          data: { id },
+        }
+      );
       if (response.status === 200) {
         Swal.fire(
           "Remove task successfully!",

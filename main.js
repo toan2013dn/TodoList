@@ -9,7 +9,7 @@ const addTaskButton = document.querySelector("#add--task");
 const removeButtonArray = [];
 
 const getAllTasks = async () => {
-  const responseData = await axios.get("http://localhost:3001/api/task");
+  const responseData = await axios.get("https://todolist-restapi-nodejs.herokuapp.com/api/task");
   const grid = document.querySelector(".task--grid__items");
   grid.innerHTML = "";
   for (const item of responseData.data.data) {
@@ -64,7 +64,7 @@ addTaskButton.addEventListener("click", async () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:3001/api/task", {
+      const response = await axios.post("https://todolist-restapi-nodejs.herokuapp.com/api/task", {
         name: formValues.name,
         status: formValues.status,
       });
