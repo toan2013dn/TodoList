@@ -10,7 +10,7 @@ const removeButtonArray = [];
 
 const getAllTasks = async () => {
   const responseData = await axios.get("http://localhost:3001/api/task");
-  const grid = document.querySelector(".task--grid");
+  const grid = document.querySelector(".task--grid__items");
   grid.innerHTML = "";
   for (const item of responseData.data.data) {
     const itemGrid = `
