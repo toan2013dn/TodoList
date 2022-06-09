@@ -1,69 +1,95 @@
-import "@styles/main.scss";
 import axios from "axios";
 import Swal from "sweetalert2/dist/sweetalert2.js";
-
 import "sweetalert2/src/sweetalert2.scss";
 
-// const buttonRemove = document.getElementById("removebtn");
-// buttonRemove.addEventListener("click", function () {
-//   Swal.fire({
-//     title: "Do you want to remove this task?",
-//     showDenyButton: true,
-//     showCancelButton: true,
-//     confirmButtonText: "Yes",
-//     denyButtonText: `No`,
-//   }).then((result) => {
-//     /* Read more about isConfirmed, isDenied below */
-//     if (result.isConfirmed) {
-//       Swal.fire("Removed!", "", "success");
-//     } else if (result.isDenied) {
-//       Swal.fire("Changes are not saved", "", "info");
-//     }
-//   });
-// });
+import "@styles/main.scss";
+import addEventRemove from "@scripts/remove.js";
 
-// const button = document.getElementById("addTask");
-// button.addEventListener("click", async function () {
-//   const { value: formValues } = await Swal.fire({
-//     title: "Add Task",
-//     html:
-//       '<label for="taskname">Task:</label>' +
-//       '<input id="swal-input1" class="swal2-input">' +
-//       '<label for="status">Status:</label>' +
-//       '<input id="swal-input2" class="swal2-input">',
-//     focusConfirm: false,
-//     preConfirm: () => {
-//       return [
-//         document.getElementById("swal-input1").value,
-//         document.getElementById("swal-input2").value,
-//       ];
-//     },
-//   });
+const addTaskButton = document.querySelector("#add--task");
+const removeButtonArray = [];
 
 const getAllTasks = async () => {
   const responseData = await axios.get("http://localhost:3001/api/task");
-  const firstTask = responseData.data.data[4];
-  const item = `
-  <div  class="task--item">
-          <div class="task--item__checkbox">
-            <input id="checked4" type="checkbox" checked />
-          </div>
-          <div class="task--item__name"><label for="checked4">${
-            firstTask.name
-          }</label></div>
-          <div class="task--item__status">
-            <div class="${firstTask.status.toLowerCase()}">${
-    firstTask.status
-  }</div>
-          </div>
-          <div id="removebtn" class="task--item__remove">
-            <img src="./source/assets/delete.png" alt="" />
-          </div>
-        </div>
-  `;
   const grid = document.querySelector(".task--grid");
-  console.log(grid);
-  grid.innerHTML += item;
+  grid.innerHTML = "";
+  for (const item of responseData.data.data) {
+    const itemGrid = `
+    <div class="task--item" id="${item._id}">
+            <div class="task--item__checkbox">
+              <input id="checked${item._id}" type="checkbox" />
+            </div>
+            <div class="task--item__name"><label for="checked${item._id}">${
+      item.name
+    }</label></div>
+            <div class="task--item__status">
+              <div class="${item.status.toLowerCase()}">${item.status}</div>
+            </div>
+            <div class="task--item__remove">
+              <img src="./source/assets/delete.png" alt="" class="remove--btn" id="remove--${
+                item._id
+              }" />
+            </div>
+          </div>
+    `;
+    grid.innerHTML += itemGrid;
+    removeButtonArray.push(`#remove--${item._id}`);
+  }
 };
 
-getAllTasks();
+addTaskButton.addEventListener("click", async () => {
+  const { value: formValues } = await Swal.fire({
+    title: "Add new task",
+    html:
+      "<div class='input--task'>Task</div>" +
+      '<input id="swal-input1" class="swal2-input">' +
+      "<div class='input--status'>Status</div>" +
+      `
+        <select name="status" id="swal-input2">
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      `,
+    focusConfirm: false,
+    preConfirm: () => {
+      return {
+        name: document.getElementById("swal-input1").value,
+        status: document.getElementById("swal-input2").value,
+      };
+    },
+  });
+
+  if (formValues) {
+    if (formValues.name === "" || formValues.status === "") {
+      return;
+    }
+    try {
+      const response = await axios.post("http://localhost:3001/api/task", {
+        name: formValues.name,
+        status: formValues.status,
+      });
+      if (response.status === 200) {
+        Swal.fire(
+          "Add task successfully!",
+          "Complete the task make you improve",
+          "success"
+        ).then((result) => {
+          if (result.isConfirmed) {
+            document.location.reload();
+          }
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+});
+
+const removeButtonAction = async () => {
+  for (const buttonId of removeButtonArray) {
+    addEventRemove(buttonId);
+  }
+};
+
+await getAllTasks();
+await removeButtonAction();

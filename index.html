@@ -1,105 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <!-- FontAwesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css"
-    />
-    <!-- Bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- JS -->
-    <script src="/main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  </head>
 
-  <body>
-    <main class="task--wrapper">
-      <div class="task--header">
-        <span>TodoList</span>
-        <h1 class="hidden">TodoList</h1>
-      </div>
-      <div class="task--grid">
-        <div class="task--grid__header">
-          <div class="checkbox--col"></div>
-          <div class="task--name-col">Task</div>
-          <div class="status-col">Status</div>
-          <div class="remove-col">Remove</div>
-        </div>
-        <div class="task--item" id="task--item">
-          <div class="task--item__checkbox">
-            <input id="checked" type="checkbox" >
-          </div>
-          <div class="task--item__name"><label for="checked"></label></div>
-          <div class="task--item__status">
-            <div class="high">High</div>
-          </div>
-          <div id="removebtn" class="task--item__remove">
-            <img src="./source/assets/delete.png" alt="" />
-          </div>
-        </div>
-        <div class="task--item">
-          <div class="task--item__checkbox">
-            <input id="checked2" type="checkbox" class="strikethrough" />
-       <!-- <label for="checked2" class="strike">Date with Ex</label> -->
-          </div>
-          <div class="task--item__name"><label for="checked2" class="strike">Date with Ex</label></div>
-          <div class="task--item__status">
-            <div class="low">Low</div>
-          </div>
-          <div id="removebtn" class="task--item__remove">
-            <img src="./source/assets/delete.png" alt="" />
-          </div>
-        </div>
-        <div class="task--item">
-          <div class="task--item__checkbox">
-            <input id="checked3" type="checkbox" />
-          </div>
-          <div class="task--item__name"><label for="checked3">Hang out with Thinh</label></div>
-          <div class="task--item__status">
-            <div class="medium">Medium</div>
-          </div>
-          <div id="removebtn" class="task--item__remove">
-            <img src="./source/assets/delete.png" alt="" />
-          </div>
-        </div>
-        <div  class="task--item">
-          <div class="task--item__checkbox">
-            <input id="checked4" type="checkbox" checked />
-          </div>
-          <div class="task--item__name"><label for="checked4">Go to vacation</label></div>
-          <div class="task--item__status">
-            <div class="done">Done</div>
-          </div>
-          <div id="removebtn" class="task--item__remove">
-            <img src="./source/assets/delete.png" alt="" />
-          </div>
-        </div>
-      </div>
-      <div id="addTask" class="task--button__add">
-        <span> Add Task </span>
-      </div>
-    </main>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- JS -->
+  <script src="/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
 
-    <script type="module" src="/main.js"></script>
-  </body>
+<body>
+  <main class="task--wrapper">
+    <div class="task--header">
+      <span>TodoList</span>
+      <h1 class="hidden">TodoList</h1>
+    </div>
+    <div class="task--grid">
+      <div class="task--grid__header">
+        <div class="checkbox--col"></div>
+        <div class="task--name-col">Task</div>
+        <div class="status-col">Status</div>
+        <div class="remove-col">Remove</div>
+      </div>
+
+
+      <!-- <div class="task--item">
+        <div class="task--item__checkbox">
+          <input id="checked4" type="checkbox" checked />
+        </div>
+        <div class="task--item__name"><label for="checked4">Go to vacation</label></div>
+        <div class="task--item__status">
+          <div class="done">Done</div>
+        </div>
+        <div id="removebtn" class="task--item__remove">
+          <img src="./source/assets/delete.png" alt="" />
+        </div> -->
+    </div>
+    <div id="add--task" class="task--button__add">
+      <span> Add Task </span>
+    </div>
+  </main>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
 </html>
